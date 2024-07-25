@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Configure domain to point to load-balancer-server. 
+#Script also adds other subdomains and lists all their info
