@@ -1,3 +1,21 @@
 #!/usr/bin/env bash
 #Configure domain to point to load-balancer-server. 
 #Script also adds other subdomains and lists all their info
+
+if [$# == 2]; then
+    #Domain argument
+    domain=$1
+    subdomain=$2
+    SUB_DOMAINS=$subdomain
+else
+    #Subdomain argument
+    domain=$1
+    SUB_DOMAINS=("www" "1b-01" "web-01" "web-02")
+fi
+
+for sub in ${SUB_DOMAINS[@]}; do
+    records="$(dig "$sub.$domain" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $4}')"
+    destination=$(dig +short "$sub.$domain" | awk '{print $1}')
+    #Display output to user of passing domain and subdomain
+    echo "The subdomain $sub is a $records record and points to $destinations"
+done
