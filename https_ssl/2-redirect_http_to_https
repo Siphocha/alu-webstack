@@ -41,11 +41,11 @@ frontend clickviral-frontend
     default_backend clickviral-backend
 
 frontend clickviral-frontend-https
-    bind *:443 ssl crt /etc/letsencrypt/live/www.mariam24.tech/fullchain.pem crt /etc/letsencrypt/live/www.mariam24.tech/privkey.pem
+    bind *:443 ssl crt /etc/letsencrypt/live/www.lawuladigital.tech/fullchain.pem crt /etc/letsencrypt/live/www.lawuladigital.tech/privkey.pem
     http-request set-header X-Forwarded-Proto https
     default_backend clickviral-backend
 
 backend clickviral-backend
     balance roundrobin
-    server 6178-web-01 52.205.230.80:80 check
-    server 6178-web-02 54.175.64.167:80 check
+        server 6177-web-01 35.172.228.251:80 check
+        server 6177-web-02 107.20.99.236:81 check
