@@ -41,11 +41,11 @@ frontend clickviral-frontend
         default_backend clickviral-backend
 
 frontend clickviral-frontend-https
-        bind *:443 ssl crt /etc/haproxy/certs/clickviral.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/lawuladigital.tech
         http-request set-header X-Forwarded-Proto https
         default_backend clickviral-backend
 
 backend clickviral-backend
         balance roundrobin
-        server 6111-web-01 54.221.170.202:80 check
-        server 6111-web-02 54.208.135.69:80 check
+        server 6177-web-01 35.172.228.251:80 check
+        server 6177-web-02 107.20.99.236:81 check
